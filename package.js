@@ -7,6 +7,7 @@ Package.on_use(function (api) {
   api.use('templating', 'client');
 
   api.add_files('lib/form-creator.js', ['client', 'server']);
+  api.add_files('lib/form-creator-server-methods.js', ['server']);
 
   if (typeof api.export !== 'undefined') {
 
