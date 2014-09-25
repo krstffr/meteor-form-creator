@@ -1,8 +1,13 @@
 Package.describe({
-  "summary": "A form creator and validator for Meteor.js."
+  summary: "A form creator and validator for Meteor.js.",
+  version: "0.1.0",
+  git: "https://github.com/krstffr/meteor-form-creator",
+  name: "krstffr:form-creator"
 });
 
 Package.onUse(function (api) {
+
+	api.versionsFrom("METEOR@0.9.0");
 
   api.use('templating', 'client');
 
@@ -10,11 +15,7 @@ Package.onUse(function (api) {
   api.add_files('lib/form-creator.js', ['client', 'server']);
   api.add_files('lib/form-creator-server-methods.js', ['server']);
 
-  if (typeof api.export !== 'undefined') {
-
-    // The main object.
-    api.export('FormCreator', ['server', 'client']);
-
-  }
+  // The main object.
+  api.export('FormCreator', ['server', 'client']);
 
 });

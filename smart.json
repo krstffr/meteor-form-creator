@@ -1,9 +1,0 @@
-{
-  "name": "form-creator",
-  "description": "A form creator and validator for Meteor.js.",
-  "homepage": "https://github.com/krstffr/meteor-form-creator",
-  "author": "Kristoffer Klintberg <krstffr@gmail.com>",
-  "version": "0.0.3",
-  "git": "https://github.com/krstffr/meteor-form-creator.git",
-  "packages": {}
-}
