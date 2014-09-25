@@ -1,0 +1,61 @@
+<template name="form-creator__form">
+
+	<form class="form-creator__form__{{ formName }}">
+
+		<h2>{{ formName }}</h2>
+
+		{{#each fields }}
+
+			<div class="
+			form-creator__group
+			{{#if isRequired 'boolean' }}form-creator__group--required{{/if}}
+			">
+
+				<label for="{{ getFieldId .. }}">{{ label }}</label>
+
+				{{#if fieldTypeIs 'input' }}
+
+					<input
+					{{ isRequired 'string' }}
+					id="{{ getFieldId .. }}"
+					name="{{ getFieldId .. }}"
+					type="{{ fieldType }}" />
+
+				{{/if}}
+
+				{{#if fieldTypeIs 'select' }}
+
+					<select
+					{{ isRequired 'string' }}
+					name="{{ getFieldId .. }}"
+					id="{{ getFieldId .. }}">
+
+						{{#each selectOptions }}
+
+							<option value="{{ value }}">{{ text }}</option>
+
+						{{/each}}
+
+					</select>
+
+				{{/if}}
+
+				{{#if fieldTypeIs 'textarea' }}
+
+					<textarea
+					{{ isRequired 'string' }}
+					id="{{ getFieldId .. }}"
+					name="{{ getFieldId .. }}"
+					type="{{ fieldType }}"></textarea>
+
+				{{/if}}
+
+			</div>
+
+		{{/each}}
+
+		<input type="submit" value="Save" />
+
+	</form>
+
+</template>
