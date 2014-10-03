@@ -1,0 +1,135 @@
+<head>
+	<title>A form-creator example app</title>
+</head>
+
+<body>
+
+	<h1>
+		Two ways of using the
+		<a href="https://github.com/krstffr/meteor-form-creator">krstffr:form-creator</a>
+		package.
+	</h1>
+
+	<p>
+		(Get all the code for this example app from <a href="https://github.com/krstffr/meteor-form-creator/tree/master/example/form-creator-example">here</a>.)
+	</p>
+
+	{{> savingData }}
+
+	{{> customCallbacks }}
+
+</body>
+
+<template name="savingData">
+
+	<div class="example">
+
+		<h2>
+			1. Using the package for saving/updating/deleting data.
+		</h2>
+
+		<div class="left-col">
+
+			<h3>
+				The form
+			</h3>
+
+			<p>
+				Let's say you want to store blog posts in a MongoDB Collection called BlogPosts. Using the form below you can add new blog posts. After that you can edit or remove them by clicking the <strong>Edit blog post</strong>-button under the posts (which will appear to the right).
+			</p>
+
+			<p>
+				All this functionality is built in to the <a href="https://github.com/krstffr/meteor-form-creator">form-creator package</a>, all you need to do is 1. Define the form and 2. Output the form in your template.
+			</p>
+
+			{{> formCreatorForm 'blogPostForm' }}
+
+		</div>
+
+		<div class="right-col">
+
+			<h3>Latest 10 posts (ordered by publishDate)</h3>
+
+			{{#each blogPosts }}
+
+				<div class="blog-post">
+
+					<h4>
+						{{ title }}
+					</h4>
+
+					{{#if rating }}
+
+						<p>
+							<em>
+								{{ publishDate }}, rating: {{ rating }}
+							</em>
+						</p>
+
+					{{/if}}
+
+					<p>
+						{{ blogPostContent }}
+					</p>
+
+					{{#if _id }}
+
+						<p>
+							<button class="edit-link">
+								Edit blog post
+							</button>
+						</p>
+
+					{{/if}}
+
+				</div>
+
+			{{/each}}
+
+		</div>
+
+	</div>
+
+</template>
+
+<template name="customCallbacks">
+
+	<div class="example">
+
+		<h2>
+			2. Using the package for doing whatever you want in a callback.
+		</h2>
+
+		<p>
+			Here's are some forms which does not store data. They do whatever you tell them to in the submitCallback which you define.
+		</p>
+
+		<div class="left-col">
+
+			{{> formCreatorForm 'customCallbackForm1' }}
+
+			{{> formCreatorForm 'customCallbackForm2' }}
+
+		</div>
+
+		<div class="right-col">
+
+			{{> formCreatorForm 'customCallbackForm3' }}
+
+			<h3>The data in the list (which is just a session):</h3>
+
+			<ul>
+
+				{{#each someSessionData }}
+
+					<li style="color: {{ color }};">{{ text }}</li>
+
+				{{/each}}
+
+			</ul>
+
+		</div>
+
+	</div>
+
+</template>

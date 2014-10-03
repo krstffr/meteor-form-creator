@@ -1,9 +1,31 @@
-<template name="form-creator__form">
+<template name="formCreatorForm">
 
-	<form class="form-creator__form__{{ formName }}">
+	<form class="form-creator__form form-creator__form__{{ formName }}">
+	
+		{{#if options.showTitle }}
 
-		<h2>{{ formName }}</h2>
+			<p class="form-creator__headline">
+				{{ getFormProperty 'name' }}
+			</p>
 
+		{{/if}}
+
+		{{#if options.showDescription }}
+
+			<p class="form-creator__description">
+				{{ getFormProperty 'description' }}
+			</p>
+
+		{{/if}}
+
+		{{#if docToUpdate }}
+			<input
+				value="{{ docToUpdate._id }}"
+				id="form-creator__{{ getFormProperty 'name' }}__id-to-update"
+				name="_id"
+				type="hidden" />
+		{{/if}}
+	
 		{{#each fields }}
 
 			<div class="
@@ -11,7 +33,12 @@
 			{{#if isRequired 'boolean' }}form-creator__group--required{{/if}}
 			">
 
-				<label for="{{ getFieldId .. }}">{{ label }}</label>
+				<label for="{{ getFieldId .. }}">
+					{{#if required }}
+						<span class="form-creator__group__required-star">*</span>
+					{{/if}}
+					{{ label }}
+				</label>
 
 				{{#if fieldTypeIs 'input' }}
 
@@ -19,7 +46,8 @@
 					{{ isRequired 'string' }}
 					id="{{ getFieldId .. }}"
 					name="{{ getFieldId .. }}"
-					type="{{ fieldType }}" />
+					type="{{ fieldType }}"
+					value="{{ getDocToUpdateValue name }}" />
 
 				{{/if}}
 
@@ -32,7 +60,7 @@
 
 						{{#each selectOptions }}
 
-							<option value="{{ value }}">{{ text }}</option>
+							<option value="{{ value }}" {{ selectOptionIsSelected ../name }}>{{ text }}</option>
 
 						{{/each}}
 
@@ -46,7 +74,7 @@
 					{{ isRequired 'string' }}
 					id="{{ getFieldId .. }}"
 					name="{{ getFieldId .. }}"
-					type="{{ fieldType }}"></textarea>
+					type="{{ fieldType }}">{{ getDocToUpdateValue name }}</textarea>
 
 				{{/if}}
 
@@ -54,7 +82,33 @@
 
 		{{/each}}
 
-		<input type="submit" value="Save" />
+		{{#if docToUpdate }}
+
+			<input
+				type="submit"
+				data-submit-action="update-doc"
+				value="{{#if options.textButtonUpdate }}{{ options.textButtonUpdate }}{{else}}Update{{/if}}" />
+
+			{{#if options.deletable }}
+				<input
+					type="submit"
+					data-submit-action="delete-doc"
+					value="{{#if options.textButtonDelete }}{{ options.textButtonDelete }}{{else}}Delete{{/if}}" />
+			{{/if}}
+
+			<input
+				type="submit"
+				data-submit-action="cancel-update"
+				value="{{#if options.textButtonCancel }}{{ options.textButtonCancel }}{{else}}Cancel{{/if}}" />
+
+		{{else}}
+
+			<input
+				type="submit"
+				data-submit-action="save-doc"
+				value="{{#if options.textButtonSave }}{{ options.textButtonSave }}{{else}}Save{{/if}}" />
+
+		{{/if}}
 
 	</form>
 

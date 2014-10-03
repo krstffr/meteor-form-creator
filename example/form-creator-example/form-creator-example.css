@@ -1,0 +1,69 @@
+/* CSS declarations go here */
+body {
+	padding: 2em;
+	font-family: sans-serif;
+	color: #333;
+	background: #f9f9f9;
+}
+
+.example {
+	border-top: 2px solid #e5e5e5;
+	overflow: hidden;
+	padding: 2em 0;
+}
+
+.left-col,
+.right-col {
+	float: left;
+	width: 45%;
+	margin-right: 5%;
+	overflow: hidden;
+}
+
+h1, h2, h3, h4, p {
+	padding: 0 0 1em;
+	margin: 0;
+}
+
+label {
+	display: block;
+	font-size: 0.9em;
+	font-weight: bold;
+	color: #777;
+	padding: 0.2em 0 0.4em;
+}
+
+input,
+textarea,
+select {
+	margin: 0 0 1em;
+	padding: 0.5em;
+	min-width: 300px;
+}
+
+textarea {
+	min-height: 200px;
+}
+
+.form-creator__form {
+	padding: 1em;
+	border: 1px solid #ddd;
+	background: #eee;
+	border-radius: 5px;
+	margin-bottom: 1em;
+}
+
+.form-creator__headline {
+	font-size: 1.15em;
+	font-weight: bold;
+	padding-top: 0.4em;
+}
+
+.form-creator__group__required-star {
+	color: #d33;
+}
+
+.blog-post {
+	border-bottom: 1px solid #eee;
+	padding: 1em 0 0;
+}

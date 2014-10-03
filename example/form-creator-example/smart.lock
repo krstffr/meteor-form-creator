@@ -1,0 +1,15 @@
+{
+  "meteor": {},
+  "dependencies": {
+    "basePackages": {
+      "krstffr:form-creator": {
+        "path": "../.."
+      }
+    },
+    "packages": {
+      "krstffr:form-creator": {
+        "path": "../.."
+      }
+    }
+  }
+}
