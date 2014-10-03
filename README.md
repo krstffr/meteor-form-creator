@@ -11,6 +11,8 @@ This is a form creator for Meteor.js.
 
 ## Example app
 
+There is an example app in the [https://github.com/krstffr/meteor-form-creator/tree/master/example/form-creator-example](/example/form-creator-example) directory.
+
 http://form-creator.meteor.com
 
 
@@ -49,9 +51,9 @@ BlogPosts = new Meteor.Collection('blogPosts');
 // A very simple blogPost form
 var blogPostForm = {
 
-	// name: This is the name of the form.
-	// The name is used for outputting the form in the HTML, using this helper:
-	// {{> formCreatorForm 'blogPostForm' }}
+  // name: This is the name of the form.
+  // The name is used for outputting the form in the HTML, using this helper:
+  // {{> formCreatorForm 'blogPostForm' }}
   name: 'blogPostForm',
 
   // description: The description is optional, and will be displayed above the form (if you want it to)
@@ -63,14 +65,14 @@ var blogPostForm = {
   // fields: An array of all the form inputs
   fields: [{
 
-  	// name: The name of the form input. This will also be the stored key in the DB.
+    // name: The name of the form input. This will also be the stored key in the DB.
     name: 'title',
 
     // fieldType: What type is this input?
     // The valid types are: 'text', 'textarea', 'select', 'number', 'date', 'password'
     fieldType: 'text',
 	
-		// label: This will be displayed as a <label> above the input
+    // label: This will be displayed as a <label> above the input
     label: 'The title of the blog post',
 		
   },
@@ -83,7 +85,7 @@ var blogPostForm = {
   // options: The options object contains various options for the form
   options: {
 
-  	// storeable: If false then you won't be able to save data to the DB
+    // storeable: If false then you won't be able to save data to the DB
     storeable: true,
 
     // Do you also want to be able to delete documents?
@@ -157,7 +159,7 @@ Now you'll see your form in you HTML and you should be able to save blog posts t
 ```javascript
 options: {
 
-	// storeable: Makes the form storable in the DB.
+  // storeable: Makes the form storable in the DB.
   storeable: true,
 
   // deletable: Gives the user the ability to remove documents
@@ -226,9 +228,9 @@ var formWithCustomCallback1 = {
     textButtonSave: 'ALERT!',
   },
   submitCallback: function ( values ) {
-  	// From this callback, all the values which the user has
-  	// passed from the form are available in the values object.
-  	// Just use the name of the input to get the value
+    // From this callback, all the values which the user has
+    // passed from the form are available in the values object.
+    // Just use the name of the input to get the value
     return alert( values.alertThis );
   }
 };
