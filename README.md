@@ -11,7 +11,7 @@ This is a form creator for Meteor.js.
 
 ## Example app
 
-There is an example app in the [https://github.com/krstffr/meteor-form-creator/tree/master/example/form-creator-example](/example/form-creator-example) directory.
+There is an example app in the [/example/form-creator-example](https://github.com/krstffr/meteor-form-creator/tree/master/example/form-creator-example)directory.
 
 http://form-creator.meteor.com
 
