@@ -1,6 +1,6 @@
 Package.describe({
   summary: "A form creator for Meteor.js.",
-  version: "0.1.3",
+  version: "0.1.4",
   git: "https://github.com/krstffr/meteor-form-creator",
   name: "krstffr:form-creator"
 });

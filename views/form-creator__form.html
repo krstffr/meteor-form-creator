@@ -86,18 +86,21 @@
 
 			<input
 				type="submit"
+				class="form-creator__btn-submit form-creator__btn-submit--update"
 				data-submit-action="update-doc"
 				value="{{#if options.textButtonUpdate }}{{ options.textButtonUpdate }}{{else}}Update{{/if}}" />
 
 			{{#if options.deletable }}
 				<input
 					type="submit"
+					class="form-creator__btn-submit form-creator__btn-submit--delete"
 					data-submit-action="delete-doc"
 					value="{{#if options.textButtonDelete }}{{ options.textButtonDelete }}{{else}}Delete{{/if}}" />
 			{{/if}}
 
 			<input
 				type="submit"
+				class="form-creator__btn-submit form-creator__btn-submit--cancel"
 				data-submit-action="cancel-update"
 				value="{{#if options.textButtonCancel }}{{ options.textButtonCancel }}{{else}}Cancel{{/if}}" />
 
@@ -105,6 +108,7 @@
 
 			<input
 				type="submit"
+				class="form-creator__btn-submit form-creator__btn-submit--save"
 				data-submit-action="save-doc"
 				value="{{#if options.textButtonSave }}{{ options.textButtonSave }}{{else}}Save{{/if}}" />
 
